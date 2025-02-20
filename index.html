@@ -34,6 +34,59 @@
 </body>
 </html>    
     <style>
+        {
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* Disable blue highlight */
+  user-select: none; /* Optional: Disable text selection globally */
+}
+
+@media (max-width: 768px) {
+  body {
+    -webkit-tap-highlight-color: transparent; /* Redundant for consistency */
+    user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  }
+a {
+  -webkit-touch-callout: none;
+}
+
+
+
+/* Add a black outline to all buttons */
+button, 
+a.button {
+    outline: 2px solid black; /* Black outline */
+    text-decoration: none;   /* Remove underline for links */
+    padding: 10px 15px;      /* Add padding for button-like appearance */
+    display: inline-block;   /* Ensure links behave like buttons */
+    border: show;            /* Optional: Remove default border */
+    background-color: #f0f0f0; /* Optional: Add background color */
+    color: black;            /* Optional: Text color */
+    font-size: 16px;         /* Optional: Font size */
+    cursor: pointer;         /* Pointer cursor on hover */
+    position: relative;      /* Required for ripple positioning */
+    overflow: hidden;        /* Hide overflow for ripple effect */
+}
+
+/* Hover effect (optional) */
+button:hover, 
+a.button:hover {
+    outline-color: #000000;       /* Change outline color on hover */
+    background-color: #858383; /* Optional: Change background color */
+}
+
+   /* Add to every clickable element */
+    a, button, input[type="button"], input[type="submit"] {
+      transition: opacity 0.3s ease, transform 1s ease; /* Fade and optional zoom */
+    }
+
+    a:hover, button:hover, input[type="button"]:hover, input[type="submit"]:hover {
+      opacity: 1; /* Adjust opacity */
+      transform: scale(1); /* Slight zoom effect */
+transition: background-color 0.1s ease;
+    }}
     :root{
     --Download-color:#313233;
     --secondary-color:#48494a;
