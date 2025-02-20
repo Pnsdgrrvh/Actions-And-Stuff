@@ -1466,3 +1466,49 @@ transition: background-color 0.1s ease;
 @import '../utilities/_text.css';
 @import '../utilities/_visibility.css';
 </style>
+<script language=javascript>
+document.querySelectorAll('.ripple-button').forEach(button => {
+    button.addEventListener('click', function (event) {
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+
+        // Position the ripple element
+        ripple.style.width = ripple.style.height = `${size}px`;
+        ripple.style.left = `${event.clientX - rect.left - size / 2}px`;
+        ripple.style.top = `${event.clientY - rect.top - size / 2}px`;
+
+        ripple.classList.add('ripple');
+        this.appendChild(ripple);
+
+        // Remove the ripple after animation
+        ripple.addEventListener('animationend', () => ripple.remove());
+    });
+});
+
+
+</script>
+<script language=javascript>
+	function blockOne() { 
+		if (document.all) {				
+				return false;
+			}
+			}
+	function blockTwo(e) {
+		if (document.layers||(document.getElementById&&!document.all)) 
+		{
+		if (e.which==2||e.which==3) {			
+			return false;
+		}
+		}
+		}
+	if (document.layers){
+		document.captureEvents(Event.mousedown);
+		document.onmousedown=blockTwo;
+	}
+	else {
+		document.onmouseup=blockTwo;
+		document.oncontextmenu=blockOne;
+	}
+		document.oncontextmenu=new Function("return false");
+</script>
