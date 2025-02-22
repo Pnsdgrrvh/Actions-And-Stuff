@@ -12,11 +12,6 @@
         const sound = document.getElementById('hoverSound');
         let isPlaying = false;
 
-        button.addEventListener('mouseenter', () => {
-            sound.currentTime = 0;
-            sound.play();
-        });
-
         button.addEventListener('click', () => {
             if (isPlaying) {
                 sound.pause();
